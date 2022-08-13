@@ -16,14 +16,14 @@
 
 ## items テーブル
 
-| Column         | Type       | Options                      |
-| -------------- | ---------- | ---------------------------- |
-| name           | string     | null: false                  |
-| price          | string     | null: false                  |
-| category       | string     | null: false                  |
-| condition      | string     | null: false                  | 
-| delivery_price | string     | null: false                  |
-| delivery_day   | string     |                               |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| name           | string     | null: false                    |
+| price          | string     | null: false                    |
+| category       | string     | null: false                    |
+| condition      | string     | null: false                    | 
+| delivery_price | string     | null: false                    |
+| delivery_day   | string     | null: false                    |
 | address        | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
 
