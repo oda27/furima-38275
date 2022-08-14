@@ -46,8 +46,9 @@
 | ------------- | ---------- | ------------------------------ |
 | user          | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
+| card_number   | string     | null: false                    |
 | date          | string     | null: false                    |
-
+| security_code | string     | null: false                    |
 
 ### Association
 
@@ -63,7 +64,12 @@
 | ------------- | ---------- | ------------------------------ |
 | user          | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
-| date          | string     | null: false                    |
+| post_code     | string     | null: false                    |
+| prefectures   | string     | null: false                    |
+| municipalities| text       | null: false                    |
+| address       | text       | null: false                    |
+| building_name | text       |                                |
+| phone_number  | string     | null: false                    |
 
 
 ### Association
