@@ -10,8 +10,8 @@
 | kana_last_name     | string | null: false                  |
 | kana_first_name    | string | null: false                  |
 | nickname           | string | null: false                  |
-| email              | string | null: false, unique_key: true|
-| birthday           | date   | null: false, unique: true    |
+| email              | string | null: false, unique: true    |
+| birthday           | date   | null: false                  |
 | encrypted_password | string | null: false                  |
 
 ### Association 
@@ -29,9 +29,9 @@
 | price             | integer | null: false                    |
 | category_id       | integer | null: false                    |
 | condition_id      | integer | null: false                    | 
-| delivery_price_id | integer | null: false                    |
-| delivery_day_id   | integer | null: false                    |
-| prefectures_id    | integer | null: false                    |
+| send_price_id     | integer | null: false                    |
+| send_day_id       | integer | null: false                    |
+| prefecture_id     | integer | null: false                    |
 | user             |references| null: false, foreign_key: true |
 
 ### Association
@@ -59,7 +59,7 @@
 | ------------- | ---------- | ------------------------------ |
 | buy           | references | null: false, foreign_key: true |
 | post_code     | string     | null: false                    |
-| prefectures_id| integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | municipalities| string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
