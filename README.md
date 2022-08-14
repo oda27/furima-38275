@@ -11,7 +11,9 @@
 | kana_first_name    | string | null: false                  |
 | nickname           | string | null: false                  |
 | email              | string | null: false unique_key: true |
-| birthday           | string | null: false                  | 
+| birthday_year      | string | null: false                  |
+| birthday_month     | string | null: false                  | 
+| birthday_day       | string | null: false                  | 
 | encrypted_password | string | null: false                  |
 
 ### Association 
@@ -48,9 +50,9 @@
 
 ### Association
 
-  * has_one :buy
-  * has_one :address
-
+ * has_one :address
+ * belongs_to :user
+ * belongs_to :item 
 
 ## addresses テーブル
 
@@ -67,4 +69,3 @@
 ### Association
 
   * belongs_to :buy
-  * has_one :address
