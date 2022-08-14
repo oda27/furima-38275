@@ -6,6 +6,7 @@
 | Column             | Type   | Options                      |
 | ------------------ | ------ | ---------------------------- |
 | name               | string | null: false                  |
+| kana               | string | null: false                  |
 | nickname           | string | null: false                  |
 | email              | string | null: false unique_key: true |
 | birthday           | string | null: false                  | 
@@ -19,16 +20,16 @@
 
 ## items テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| name           | string     | null: false                    |
-| price          | string     | null: false                    |
-| category       | string     | null: false                    |
-| condition      | string     | null: false                    | 
-| delivery_price | string     | null: false                    |
-| delivery_day   | string     | null: false                    |
-| image          | text       |                                |
-| user           | references | null: false, foreign_key: true |
+| Column            | Type    | Options                        |
+| ----------------- | ------- | ------------------------------ |
+| name              | string  | null: false                    |
+| price             | integer | null: false                    |
+| category          | string  | null: false                    |
+| condition_id      | integer | null: false                    | 
+| delivery_price_id | integer | null: false                    |
+| delivery_day_id   | integer | null: false                    |
+| prefectures       | string  | null: false                    |
+| user             |references| null: false, foreign_key: true |
 
 ### Association
 
@@ -42,10 +43,6 @@
 | ------------- | ---------- | ------------------------------ |
 | user          | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
-| card_number   | string     | null: false                    |
-| month         | string     | null: false                    |
-| year          | string     | null: false                    |
-| security_code | string     | null: false                    |
 
 ### Association
 
@@ -57,13 +54,12 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
+| buy           | references | null: false, foreign_key: true |
 | post_code     | string     | null: false                    |
 | prefectures   | string     | null: false                    |
-| municipalities| text       | null: false                    |
-| address       | text       | null: false                    |
-| building_name | text       |                                |
+| municipalities| string     | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 
 ### Association
