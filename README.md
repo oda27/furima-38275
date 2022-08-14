@@ -10,10 +10,8 @@
 | kana_last_name     | string | null: false                  |
 | kana_first_name    | string | null: false                  |
 | nickname           | string | null: false                  |
-| email              | string | null: false unique_key: true |
-| birthday_year      | string | null: false                  |
-| birthday_month     | string | null: false                  | 
-| birthday_day       | string | null: false                  | 
+| email              | string | null: false, unique_key: true|
+| birthday           | date   | null: false, unique: true    |
 | encrypted_password | string | null: false                  |
 
 ### Association 
@@ -27,6 +25,7 @@
 | Column            | Type    | Options                        |
 | ----------------- | ------- | ------------------------------ |
 | name              | string  | null: false                    |
+| explanation       | text    | null: false                    |
 | price             | integer | null: false                    |
 | category_id       | integer | null: false                    |
 | condition_id      | integer | null: false                    | 
