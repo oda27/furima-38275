@@ -5,8 +5,10 @@
 
 | Column             | Type   | Options                      |
 | ------------------ | ------ | ---------------------------- |
-| name               | string | null: false                  |
-| kana               | string | null: false                  |
+| kanji_last_name    | string | null: false                  |
+| kanji_first_name   | string | null: false                  |
+| kana_last_name     | string | null: false                  |
+| kana_first_name    | string | null: false                  |
 | nickname           | string | null: false                  |
 | email              | string | null: false unique_key: true |
 | birthday           | string | null: false                  | 
@@ -24,11 +26,11 @@
 | ----------------- | ------- | ------------------------------ |
 | name              | string  | null: false                    |
 | price             | integer | null: false                    |
-| category          | string  | null: false                    |
+| category_id       | integer | null: false                    |
 | condition_id      | integer | null: false                    | 
 | delivery_price_id | integer | null: false                    |
 | delivery_day_id   | integer | null: false                    |
-| prefectures       | string  | null: false                    |
+| prefectures_id    | integer | null: false                    |
 | user             |references| null: false, foreign_key: true |
 
 ### Association
@@ -56,7 +58,7 @@
 | ------------- | ---------- | ------------------------------ |
 | buy           | references | null: false, foreign_key: true |
 | post_code     | string     | null: false                    |
-| prefectures   | string     | null: false                    |
+| prefectures_id| integer    | null: false                    |
 | municipalities| string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
@@ -64,5 +66,5 @@
 
 ### Association
 
-  * has_one :buy
+  * belongs_to :buy
   * has_one :address
