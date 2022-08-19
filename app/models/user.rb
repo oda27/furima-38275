@@ -20,8 +20,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
   format: { with: VALID_PASSWORD_REGEX }
 
-  with_options presence: true,
-  format: { with: /\A[ぁ-ゔァ-ヴ\p{Ideographic}ａ-ｚＡ-Ｚ０-９]+\z/ } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
     validates :kanji_last_name
     validates :kanji_first_name
     validates :kana_last_name
