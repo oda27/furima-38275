@@ -6,10 +6,12 @@ class User < ApplicationRecord
 
   # has_many :items
   # has_many :buys
-
-  validates :nickname, :birthday, presence: true
   
-
+  with_options presence: true do
+    validates :nickname 
+    validates :birthday
+  end
+  
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, presence: true,
   format: { with: VALID_PASSWORD_REGEX }
@@ -19,7 +21,7 @@ class User < ApplicationRecord
     validates :kanji_first_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヴー]+\z/u } do
+  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/u } do
     validates :kana_last_name
     validates :kana_first_name
   end
