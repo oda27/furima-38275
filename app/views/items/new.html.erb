@@ -5,9 +5,9 @@
 
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item local: true do |f| %>
+    <%= form_with model: @item, local: true do |f| %>
 
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -21,14 +21,12 @@
         <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
-    <%= @item.name %>
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <%= @item.explanation %>
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明
@@ -38,7 +36,6 @@
       </div>
     </div>
 
-    <%= @item.category_id %>
     <div class="items-detail">
       <div class="weight-bold-text">商品の詳細</div>
       <div class="form">
@@ -47,7 +44,6 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
-        <%= @item.condition_id %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
@@ -57,7 +53,6 @@
 
     </div>
 
-    <%= @item.send_price_id %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>
@@ -69,7 +64,6 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:send_price_id, SendPrice.all, :id, :name, {}, {class:"select-box", id:"send_price"}) %>
-        <%= @item.prefecture_id %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
@@ -84,7 +78,6 @@
       </div>
     </div>
 
-    <%= @item.price %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
