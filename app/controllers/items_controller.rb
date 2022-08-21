@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
 
   before_action :authenticate_user!,except: :index
 
-  # def index
-    # @item = Item.new
-    # @items = Item.all
-  # end
+  def index
+    @item = Item.new
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
