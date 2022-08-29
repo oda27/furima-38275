@@ -1,10 +1,11 @@
 class Buyform
   include ActiveModel::Model
-  attr_accessor :user,:item,:buy,:post_code,:prefecture_id,:municipalities,:address,:building_name,:phone_number
+  attr_accessor :user_id,:item_id,:post_code,:prefecture_id,:municipalities,:house_number,:building_name,:phone_number
 
-  validates :user, :item, :buy, :post_code, :prefecture_id, :municipalities, :address, :phone_number, presence: true
+  validates :user_id, :item_id, :post_code, :prefecture_id, :municipalities, :house_number, :phone_number, presence: true
 
   def save
-    # 各テーブルにデータを保存する処理を書く
+    @buy = Buy.create(user_id: user_id, item_id: item_id)
+    Address.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, house_number: house_number, phone_number: phone_number)
   end
 end
