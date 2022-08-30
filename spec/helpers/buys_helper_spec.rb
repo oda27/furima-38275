@@ -11,5 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe BuysHelper, type: :helper do
+  config.use_transactional_fixtures = true
+
   pending "add some examples to (or delete) #{__FILE__}"
 end

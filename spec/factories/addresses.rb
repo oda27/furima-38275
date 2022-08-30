@@ -5,8 +5,7 @@ FactoryBot.define do
     municipalities {'テスト'}
     house_number {'テスト1-1'}
     building_name {'テスト'}
-    phone_number {'00000000000'}
+    phone_number {'00011112222'}
     association :buy
-
   end
 end
