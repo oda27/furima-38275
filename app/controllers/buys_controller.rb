@@ -1,9 +1,9 @@
 class BuysController < ApplicationController
 
+  before_action :set_item, only: [:index, :create]
   before_action :authenticate_user!, only: :index 
 
   def index
-    @item = Item.find(params[:item_id]) 
     @buy = Buyform.new
     if @item.buy.present?
       redirect_to root_path
@@ -14,7 +14,6 @@ class BuysController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id]) 
     @buy = Buyform.new(buy_params)
     if @buy.valid?
       pay_item
@@ -30,6 +29,10 @@ class BuysController < ApplicationController
 
   def buy_params
     params.require(:buyform).permit(:post_code, :prefecture_id, :municipalities, :house_number, :building_name, :phone_number, :price).merge(user_id: current_user.id, item_id: @item.id, token: params[:token] )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id]) 
   end
 
   def pay_item
