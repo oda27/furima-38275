@@ -27,6 +27,9 @@ class ItemsController < ApplicationController
     unless current_user.id == @item.user_id
       redirect_to action: :index
     end
+    if @item.buy.present?
+      redirect_to root_path
+    end
   end
 
   def update
