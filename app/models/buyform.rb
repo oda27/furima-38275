@@ -11,8 +11,7 @@ class Buyform
     validates :municipalities
     validates :house_number
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :phone_number, length: { minimum: 9 }
-    validates :phone_number, length: { maximum: 11 }
+    validates :phone_number, length: { minimum: 8 , maximum: 11}
     validates :phone_number, numericality: {only_integer: true, greater_than_or_equal_to: 0}
     validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
   end

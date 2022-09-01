@@ -50,7 +50,7 @@ RSpec.describe Buyform, type: :model do
       it "電話番号が空だと購入できないこと" do
         @buyform.phone_number = ''
         @buyform.valid?
-        expect(@buyform.errors.full_messages).to include("Phone number can't be blank", "Phone number is too short (minimum is 9 characters)")
+        expect(@buyform.errors.full_messages).to include("Phone number can't be blank", "Phone number is too short (minimum is 8 characters)", "Phone number can't be blank", "Phone number can't be blank", "Phone number is not a number")
       end
       it "電話番号に半角のハイフンが含まれていると購入できないこと" do
         @buyform.phone_number = '000-000-000'
@@ -61,6 +61,11 @@ RSpec.describe Buyform, type: :model do
         @buyform.phone_number = '000011112222'
         @buyform.valid?
         expect(@buyform.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
+      it "電話番号が9文字以下だと購入できないこと" do
+        @buyform.phone_number = '001122'
+        @buyform.valid?
+        expect(@buyform.errors.full_messages).to include("Phone number is too short (minimum is 8 characters)")
       end
       it "tokenが空では購入ができないこと" do
         @buyform.token = nil
